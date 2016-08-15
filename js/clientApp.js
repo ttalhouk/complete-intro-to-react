@@ -1,19 +1,7 @@
-
+/* globals React ReactDOM*/
 // DOM components
 var div = React.DOM.div
-var h1 = React.DOM.h1
-// Custom components
-
-var MyTitle = React.createClass({
-  // render: function (){} alternative ES6 syntax
-  render (){
-    return(
-      div(null,
-        h1({style: {color:this.props.color}}, this.props.title || 'this is my custom component')
-      )
-    )
-  }
-})
+var MyTitle = require('./MyTitle')
 
 var MyTitleFactory = React.createFactory(MyTitle)
 
@@ -21,13 +9,13 @@ var ce = React.createElement
 
 var myFirstComponent = (
   div(null,
-    React.createElement(MyTitle,null),
+    React.createElement(MyTitle, null),
     // h1(null, 'this is my first component')
-    React.createElement(MyTitle,{title:'props are great', color:"rebeccapurple"}),
+    React.createElement(MyTitle, {title: 'props are great', color: 'rebeccapurple'}),
     // using the factory is equivelent
-    MyTitleFactory({title: 'use props everywhere', color:"red"}),
+    MyTitleFactory({title: 'use props everywhere', color: 'red'}),
     // or
-    ce(MyTitle, {title: 'props are the best', color:"green"})
+    ce(MyTitle, {title: 'props are the best', color: 'green'})
   )
 )
 
