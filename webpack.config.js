@@ -1,10 +1,10 @@
 const path = require('path')
 
 module.exports = {
-  contex: __dirname,
-  entry: './js/ClientApp.js',
-  output:{
-    path: path.join(__dirname,'/public'),
+  context: __dirname,
+  entry: './js/ClientApp.jsx',
+  output: {
+    path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -18,7 +18,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader'
       }
     ]
