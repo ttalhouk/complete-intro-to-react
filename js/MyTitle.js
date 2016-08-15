@@ -1,3 +1,6 @@
+var React = require('react')
+// takes react out of global
+
 // DOM components
 var div = React.DOM.div
 var h1 = React.DOM.h1

@@ -1,4 +1,9 @@
-/* globals React ReactDOM*/
+// /* globals React ReactDOM*/
+// for standard
+var React = require('react')
+var ReactDOM = require('react-dom')
+// takes react and react-dom out of global
+
 // DOM components
 var div = React.DOM.div
 var MyTitle = require('./MyTitle')
