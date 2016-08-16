@@ -1,7 +1,6 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-
 // implicit return using ( ) instead of { return (...)}
 // note can have local variables using this syntax
 
@@ -12,8 +11,6 @@ const App = () => (
       <input className="search" type='text' placeholder='Search' />
       <button className='browse-all' >or Browse All</button>
     </div>
-
-
   </div>
 )
 
