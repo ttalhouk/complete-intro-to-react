@@ -26,7 +26,7 @@ console.log(shows)
 const App = React.createClass({
   assignShow (nextState, replace) {
     const showArray = shows.filter((show) => show.imdbID === nextState.params.id)
-    // checks if id existed
+    // checks if id existed else runs replace route
     if (showArray < 1) {
       return replace('/')
     }

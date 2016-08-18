@@ -1,4 +1,5 @@
 const React = require('react')
+const Header = require('./Header')
 
 // using es6 class
 class Details extends React.Component {
@@ -7,9 +8,7 @@ class Details extends React.Component {
     const { title, year, description, poster, trailer } = params
     return (
       <div className="container">
-        <header className="header">
-          <h1 className="brand">Video App</h1>
-        </header>
+        <Header />
         <div className="video-info">
           <h1 className="video-title">{title}</h1>
           <h2 className="video-year">({year})</h2>
