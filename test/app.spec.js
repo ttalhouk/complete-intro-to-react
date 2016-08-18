@@ -5,8 +5,9 @@ const Search = require('../js/Search')
 const ShowCard = require('../js/ShowCard')
 const { shallow, mount } = require('enzyme')
 const { shows } = require('../public/data')
+const { store, rootReducer } = require('../js/Store')
 
-describe('<Search /> component', () => {
+xdescribe('<Search /> component', () => {
   it('should render the brand', () => {
     const wrapper = shallow(<Search />)
     expect(wrapper.contains(<h1 className="brand">Video App</h1>)).to.be.true
@@ -24,5 +25,16 @@ describe('<Search /> component', () => {
     input.simulate('change')
     expect(wrapper.state('searchTerm')).to.equal('house')
     expect(wrapper.find('.show-card').length).to.equal(2)
+  })
+})
+
+describe('Store', () => {
+  it('should bootstrap', () => {
+    const state = rootReducer(undefined, { type: '@@redux/INIT' })
+    expect(state).to.deep.equal({ searchTerm: '' })
+  })
+  it('should handle setSearchTerm items', () => {
+    const state = rootReducer({ searchTerm: 'house' }, { type: 'setSearchTerm', value: 'correct' })
+    expect(state).to.deep.equal({ searchTerm: 'correct' })
   })
 })
