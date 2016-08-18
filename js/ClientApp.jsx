@@ -18,8 +18,12 @@ const Layout = require('./Layout')
 const Landing = require('./Landing')
 const Search = require('./Search')
 const Details = require('./Details')
+const { store } = require('./Store')
 
-console.log(shows)
+// Redux
+
+const { Provider } = require('react-redux')
+// makes store available where needed
 
 // implicit return using ( ) instead of { return (...)}
 // note can have local variables using this syntax
@@ -35,13 +39,15 @@ const App = React.createClass({
   },
   render () {
     return (
-      <Router history={hashHistory}>
-        <Route path='/' component={Layout} >
-          <IndexRoute component={Landing} />
-          <Route path='/search' component={Search} shows={shows} />
-          <Route path='/details/:id' component={Details} onEnter={this.assignShow} />
-        </Route>
-      </Router>
+      <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path='/' component={Layout} >
+            <IndexRoute component={Landing} />
+            <Route path='/search' component={Search} shows={shows} />
+            <Route path='/details/:id' component={Details} onEnter={this.assignShow} />
+          </Route>
+        </Router>
+      </Provider>
     )
   }
 })
