@@ -1,6 +1,6 @@
 const React = require('react')
 const ShowCard = require('./ShowCard')
-
+const Header = require('./Header')
 // being passed as props.route from ClientApp
 // 'const data = require('../public/data')'
 
@@ -30,8 +30,8 @@ const Search = React.createClass({
       searchTerm: ''
     }
   },
-  handleSearchTermEvent (event) {
-    this.setState({searchTerm: event.target.value})
+  handleSearchTermChange (searchTerm) {
+    this.setState({searchTerm: searchTerm})
   },
   propTypes: {
     route: object
@@ -39,10 +39,10 @@ const Search = React.createClass({
   render () {
     return (
       <div className='container'>
-        <header className="header">
-          <h1 className="brand">Video App</h1>
-          <input value={this.state.searchTerm} type="text" className="search-input" placeholder="Search" onChange={this.handleSearchTermEvent} />
-        </header>
+        <Header
+          handleSearchTermChange={this.handleSearchTermChange}
+          searchTerm={this.state.searchTerm}
+          showSearch />
         <div className='shows'>
           {console.log(this.props.route.shows)}
           {this.props.route.shows
