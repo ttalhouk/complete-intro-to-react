@@ -1,5 +1,5 @@
 const React = require('react')
-const { hashHistory } = require('react-router')
+const { browserHistory } = require('react-router')
 const {Link} = require('react-router')
 const { connector } = require('./Store')
 
@@ -25,7 +25,7 @@ class Landing extends React.Component {
     this.goToSearch = this.goToSearch.bind(this)
   }
   goToSearch (event) {
-    hashHistory.push('search')
+    browserHistory.push('search')
     event.preventDefault()
   }
   handleSearchTermEvent (event) {
