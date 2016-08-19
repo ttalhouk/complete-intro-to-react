@@ -23,7 +23,7 @@ const { connector } = require('./Store')
 // ES6 Syntax for State Components
 // class Search extends React.Component {
 
-const { object, string } = React.PropTypes
+const { object, string, arrayOf } = React.PropTypes
 
 const Search = React.createClass({
 
@@ -51,15 +51,15 @@ const Search = React.createClass({
   // ))}
 
   propTypes: {
-    route: object,
-    searchTerm: string
+    searchTerm: string,
+    shows: arrayOf(object)
   },
   render () {
     return (
       <div className='container'>
         <Header showSearch />
         <div className='shows'>
-          {this.props.route.shows
+          {this.props.shows
             .filter((show) => `${show.title} ${show.description}`.toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0)
             .map((show) => (
               <ShowCard {...show} key={show.imdbID} />
