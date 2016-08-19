@@ -1,5 +1,5 @@
 const React = require('react')
-const ReactDOM = require('react-dom')
+// const ReactDOM = require('react-dom')
 
 // Router
 const ReactRouter = require('react-router')
@@ -54,4 +54,4 @@ const App = React.createClass({
   }
 })
 
-ReactDOM.render(<App />, document.getElementById('app'))
+module.exports = App
